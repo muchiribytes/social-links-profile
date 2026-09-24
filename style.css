@@ -128,3 +128,35 @@ body {
     background-color var(--transition-fast),
     color var(--transition-fast);
 }
+
+/* Hover & Focus Interactive States */
+.profile-card__link:hover,
+.profile-card__link:focus-visible {
+  background-color: var(--clr-green);
+  color: var(--clr-grey-900);
+  outline: none;
+  cursor: pointer;
+}
+
+.profile-card__link:focus-visible {
+  box-shadow: 0 0 0 3px var(--clr-white);
+}
+
+/* Footer Attribution */
+.attribution {
+  margin-top: 2.5rem;
+  font-size: 0.75rem;
+  color: hsl(0, 0%, 60%);
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--clr-green);
+  text-decoration: none;
+}
+
+.attribution a:hover,
+.attribution a:focus-visible {
+  text-decoration: underline;
+  outline: none;
+}
