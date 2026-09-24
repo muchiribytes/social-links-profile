@@ -36,6 +36,8 @@
   --fw-bold: 700;
   --radius-card: 0.75rem;
   --radius-btn: 0.5rem;
+  --shadow-card: 0 0.625rem 1.875rem rgba(0, 0, 0, 0.3);
+  --shadow-focus: 0 0 0 0.1875rem var(--clr-white);
   --transition-fast: 0.25s ease-in-out;
 }
 
@@ -70,7 +72,7 @@ body {
   padding: clamp(1.5rem, 5vw, 2.5rem);
   border-radius: var(--radius-card);
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-card);
 }
 
 .profile-card__header {
@@ -84,27 +86,28 @@ body {
   height: 5.5rem;
   border-radius: 50%;
   object-fit: cover;
-  margin-bottom: 1.5rem;
+  margin-block-end: clamp(1rem, 3vw, 1.5rem);
 }
 
 .profile-card__name {
   font-size: clamp(1.25rem, 2.5vw, 1.5rem);
   font-weight: var(--fw-semibold);
   color: var(--clr-white);
-  margin-bottom: 0.25rem;
+  margin-block-end: 0.25rem;
 }
 
 .profile-card__location {
   color: var(--clr-green);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   font-weight: var(--fw-bold);
-  margin-bottom: 1.5rem;
+  letter-spacing: 0.02em;
+  margin-block-end: clamp(1rem, 3vw, 1.5rem);
 }
 
 .profile-card__bio {
   color: hsl(0, 0%, 80%);
   font-size: var(--fs-body);
-  margin-bottom: 1.5rem;
+  margin-block-end: clamp(1rem, 3vw, 1.5rem);
 }
 
 .profile-card__links-list {
@@ -124,12 +127,17 @@ body {
   font-size: var(--fs-body);
   text-decoration: none;
   border-radius: var(--radius-btn);
-  transition:
-    background-color var(--transition-fast),
-    color var(--transition-fast);
 }
 
 /* Hover & Focus Interactive States */
+@media (prefers-reduced-motion: no-preference) {
+  .profile-card__link {
+    transition:
+      background-color var(--transition-fast),
+      color var(--transition-fast);
+  }
+}
+
 .profile-card__link:hover,
 .profile-card__link:focus-visible {
   background-color: var(--clr-green);
@@ -139,12 +147,25 @@ body {
 }
 
 .profile-card__link:focus-visible {
-  box-shadow: 0 0 0 3px var(--clr-white);
+  box-shadow: var(--shadow-focus);
+}
+
+/* Accessibility Utility: Visually Hidden */
+.visually-hidden {
+  position: absolute;
+  width: 0.0625rem;
+  height: 0.0625rem;
+  padding: 0;
+  margin: -0.0625rem;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Footer Attribution */
 .attribution {
-  margin-top: 2.5rem;
+  margin-block-start: clamp(1.5rem, 4vw, 2.5rem);
   font-size: 0.75rem;
   color: hsl(0, 0%, 60%);
   text-align: center;
@@ -159,17 +180,4 @@ body {
 .attribution a:focus-visible {
   text-decoration: underline;
   outline: none;
-}
-
-/* Accessibility Utility: Visually Hidden */
-.visually-hidden {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
 }
