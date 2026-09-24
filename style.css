@@ -38,3 +38,27 @@
   --radius-btn: 0.5rem;
   --transition-fast: 0.25s ease-in-out;
 }
+
+/* Reset & Base Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--ff-primary);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-regular);
+  background-color: var(--clr-grey-900);
+  color: var(--clr-white);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+  line-height: 1.5;
+}
